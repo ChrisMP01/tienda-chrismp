@@ -1,0 +1,37 @@
+<html lang="es">
+
+<head>
+	<title>Tienda Online</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<style>
+
+.card{
+	float:left;
+}
+
+</style>
+</head>
+
+<body>
+	<nav th:replace="navbarLoad"></nav>
+	<main>
+		<table class="table table-hover">
+		  <thead>
+		    <tr>
+		      <th scope="col">Nombre:</th>
+		      <th scope="col">Descripción:</th>
+		      <th scope="col">Precio:</th>
+		      <th scope="col">Ver</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="producto: ${lista_prod}" class="table-active">
+		      <td th:text="${producto.nomProd}"></td>
+		      <td th:text="${producto.descripcion}"></td>
+		      <td th:text="${producto.precio}"></td>
+		      <td><a th:href="@{/producto/{id}(id=${producto.idProd})}" class="btn btn-primary">Ver Producto</a></td>
+		    </tr>
+		 </table>
+	</main>
+</body>
+</html>

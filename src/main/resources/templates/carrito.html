@@ -1,0 +1,38 @@
+<html>
+
+<head>
+
+	<style>
+		.card {
+			float: left;
+		}
+	</style>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+
+<body>
+	<nav th:replace="navbarLoad"></nav>
+	<main>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">Nombre:</th>
+					<th scope="col">Precio:</th>
+					<th scope="col">Cantidad:</th>
+					<th scope="col">Ver:</th>
+					<th scope="col">Comprar:</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="productoCompra: ${lista_carrito}" class="table-active">
+					<td th:text="${productoCompra.nom_prod}"></td>
+					<td th:text="${productoCompra.precio}"></td>
+					<td th:text="${productoCompra.unidades}"></td>
+					<td><a th:href="@{/producto/{id}(id=${productoCompra.id_prod})}" class="btn btn-primary">Ver Producto</a></td>
+					<td><a th:href="@{/compra/producto/{id}(id=${productoCompra.id_prod})}" class="btn btn-primary">Comprar</a></td>
+				</tr>
+		</table>
+	</main>
+</body>
+
+</html>

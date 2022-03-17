@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+	<nav th:replace="/navbarLoad"></nav>
+	<style type="text/css">
+</style>
+
+	<div class="main">
+		<div class="container-sm">
+			<div class="titulo">Foto de <span th:text="${producto.nom_prod}"></span>
+			</div>
+			<div class="foto" th:if="${imagen != null}">
+				<img class="foto-perfil" th:src="@{/imagenes/{id_producto}(id_producto=${producto.id_prod})}">
+			</div>
+			<div class="foto" th:if="${imagen == null}">
+				<img class="foto-perfil" th:src="@{/images/user.png}">
+			</div>
+		</div>
+		<div class="container-sm" style="margin-right: auto; margin-left: auto;">
+			<div class="card" style="float: left">
+
+
+				<form th:action="@{/imagenes/cargar/{id_producto}(id_producto=${producto.id_prod})}" method="POST" enctype="multipart/form-data">
+
+					<tr>
+						<td><input type="file" class="form-control" name="file" required></td>
+					</tr>
+					<tr>
+						<td><input type="submit" class="btn btn-lg btn-info"></td>
+					</tr>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

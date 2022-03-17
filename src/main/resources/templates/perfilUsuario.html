@@ -1,0 +1,67 @@
+<html lang="es">
+
+<head>
+	<title>Tienda Online</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+
+<body>
+	<nav th:replace="navbarLoad"></nav>
+	<div class="row gutters-sm" th:if="${usuario != null}">
+		<div class="col-md-4 mb-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="d-flex flex-column align-items-center text-center">
+						<img th:src="@{/images/default.png}" alt="Admin" class="rounded-circle" width="207">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card mb-3">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-sm-3">
+							<h6 class="mb-0">Nombre:</h6>
+						</div>
+						<div class="col-sm-9 text-secondary" th:text="${usuario.nombre_usuario}" />
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-sm-3">
+							<h6 class="mb-0">Apellido:</h6>
+						</div>
+						<div class="col-sm-9 text-secondary" th:text="${usuario.apellido_usuario}" />
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-sm-3">
+							<h6 class="mb-0">Fecha de nacimiento:</h6>
+						</div>
+						<div class="col-sm-9 text-secondary" th:text="${usuario.fecha_nac}" />
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-sm-3">
+							<h6 class="mb-0">email:</h6>
+						</div>
+						<div class="col-sm-9 text-secondary" th:text="${usuario.email}" />
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-sm-3">
+							<a class="btn btn-primary" target="__blank" th:href="@{/compra/mostrar}">Historial de compras</i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:if="${usuario == null}">
+			<div class="alert alert-dismissible alert-danger">
+				<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+				<strong>Error!</strong> <a href="#" class="alert-link">Usuario no existente</a> Vuelve a la pagina principal
+			</div>
+		</div>
+	</body>
+</html>

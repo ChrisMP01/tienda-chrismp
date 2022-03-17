@@ -1,0 +1,79 @@
+<html lang="es">
+
+<head>
+	<title>Tienda Online</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+	<style>
+		#tabla{
+			display:flex;
+			justify-content:center;
+		}
+		.row{
+			text-align:center;
+		}
+	</style>
+</head>
+
+<body>
+
+	<nav th:replace="navbarLoad"></nav>
+	<div class="row gutters-sm" id="tabla">
+		<div class="col-md-8">
+			<div class="card mb-3">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-sm-3">
+							<h6 class="mb-0">ID de compra:</h6>
+						</div>
+						<div class="col-sm-9 text-secondary" th:text="${compra.id_compra}" />
+					</div>
+					<div class="row">
+						<div class="col-sm-3">
+							<h6 class="mb-0">Unidades:</h6>
+						</div>
+						<div class="col-sm-9 text-secondary" th:text="${compra.unidades}" />
+					</div>
+					<hr>
+					<h3>Datos del producto</h3><br>
+					<div class="row">
+						<div class="col-sm-3">
+							<h6 class="mb-0">Nombre:</h6>
+						</div>
+						<div class="col-sm-9 text-secondary" th:text="${producto.nom_prod}" />
+					</div><br>
+					<div class="row">
+						<div class="col-sm-3">
+							<h6 class="mb-0">Descripción:</h6>
+						</div>
+						<div class="col-sm-9 text-secondary" th:text="${producto.descripcion}" />
+					</div><br>
+					<div class="row">
+						<div class="col-sm-3">
+							<h6 class="mb-0">Precio por unidad:</h6>
+						</div>
+						<div class="col-sm-9 text-secondary" th:text="${producto.precio}+€" />
+					</div><br>
+					<div class="row">
+						<div class="col-sm-3">
+							<h6 class="mb-0">Descuento:</h6>
+						</div>
+						<div class="col-sm-9 text-secondary" th:text="${producto.descuento}" />
+					</div><br>
+					<div class="row">
+						<div class="col-sm-3">
+							<h6 class="mb-0">Precio total:</h6>
+						</div>
+						<div class="col-sm-9 text-secondary" th:text="${producto.precio * compra.unidades}+€" />
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-sm-3">
+							<a class="btn btn-primary" target="__blank" th:href="@{/compra/mostrar}">Volver al historial<i class="fas fa-trash-alt"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

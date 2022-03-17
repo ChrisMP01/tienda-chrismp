@@ -1,0 +1,54 @@
+<html lang="es">
+
+<head>
+	<title>Tienda Online</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<style>
+
+.card{
+	float:left;
+}
+
+#tablacompras{
+	width:80%;
+	margin-top:40px;
+	margin-right:auto;
+	margin-left:auto;
+}
+h2{
+	margin-top:30px;
+	text-align:center;
+}
+
+
+</style>
+</head>
+
+<body>
+	<nav th:replace="navbarLoad"></nav>
+	<main>
+	<h2> Mis compras </h2>
+	<div id="tablacompras">
+		<table class="table table-hover ">
+		  <thead>
+		    <tr class="table-dark">
+		      <th scope="col">idCompra:</th>
+		      <th scope="col">Precio:</th>
+		      <th scope="col">Unidades:</th>
+		      <!--<th scope="col">Ver:</th>-->
+		      <th scope="col">Otros:</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="compra: ${lista_compra}" class="table-active">
+		      <td th:text="${compra.id_compra}"></td>
+		      <td th:text="${compra.precio}+€"></td>
+		      <td th:text="${compra.unidades}"></td>
+		      <!--<td><a th:href="@{/perfilCompra/{id}(id=${compra.id_compra})}" class="btn btn-primary">Ver Compra</a></td>-->
+		      <td><a th:href="@{/devolverCompra/{id}(id=${compra.id_compra})}" class="btn btn-primary">Devolución</a></td>
+		    </tr>
+		 </table>
+	</div>
+	</main>
+</body>
+</html>

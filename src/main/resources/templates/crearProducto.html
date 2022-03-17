@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>crear producto</title>
+		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+	</head>
+	
+	<body>
+	<nav th:replace="navbarLoad"></nav>
+		<form th:action="@{/producto/crear}" method="post">
+		
+			<fieldset>
+			    <legend>Crear producto:</legend>
+				    <div class="form-group">
+				      <label for="exampleInputEmail1" class="form-label mt-4">Título:</label>
+				      <input type="text" name="titulo" size="50" class="form-control">
+				    </div>
+				    <div class="form-group">
+				      <label for="exampleInputEmail1" class="form-label mt-4">Descripción:</label>
+				      <input type="text" name="descripcion" size="150" class="form-control">
+				    </div>
+				    <div class="form-group">
+				      <label for="exampleInputEmail1" class="form-label mt-4">Precio:</label>
+				      <input type="text" name="precio" size="5" class="form-control">
+				    </div>
+				    <div class="form-group">
+				      <label for="exampleInputEmail1" class="form-label mt-4">Descuento:</label>
+				      <input type="text" name="descuento" size="5" class="form-control">
+				    </div>
+				    <div>
+				    	<input type="submit" class="btn btn-primary" value="Crear producto">
+				    </div>
+		</form>
+	</body>
+</html>
