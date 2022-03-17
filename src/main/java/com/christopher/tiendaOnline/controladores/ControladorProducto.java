@@ -60,6 +60,6 @@ public class ControladorProducto {
 		
 		List<Producto> productos=productoService.buscarNombre(buscar);
 		modelo.addAttribute("lista_prod",productos);
-		return "/listaProducto";
+		return "listaProducto";
 	}
 }
